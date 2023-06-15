@@ -4,5 +4,5 @@ plugins:
 title: [Predicting Game Result at 15 Minutes]
 description:
   [
-    We are able to predict with 75% accuracy the victor of a game simply by looking at the data 15 minutes into the game.,
+    With an accuracy of 75%, my model determines the winner of a League of Legends game 15-minutes into the match.,
   ]
