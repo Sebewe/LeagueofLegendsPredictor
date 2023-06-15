@@ -23,7 +23,7 @@ This is a __binary classification problem__, therefore my model will either clas
  - Team XP: Numerical, continuous, this feature was standardized
  - Side of the map: Categorical, Nominal, this feature was one-hot-encoded
  - __CLASSIFYING__ Result: whether or not the team we are using data from won or not. __Categorical, Ordinal__.
- - _You can see a snippet of our $X$ before the transformations below._
+ - _You can see a snippet of our _X_ before the transformations below._
 
 |        |   killsat15 |   deathsat15 |   goldat15 |   xpat15 | blueside   |
 |-------:|------------:|-------------:|-----------:|---------:|:-----------|
@@ -58,7 +58,7 @@ __Note:__ In preparation for this model, I wanted to one-hot encode the champion
  - __`'sup'`__: The champion playing support for the teame. __Categorical, Nominal, One-Hot-Encoded.__
  - __`'blueside'`__: Determines if the team is playing from blueside. __Categoriacl, Nominal, Raw (One-Hot-Encoded).__
  - __CLASSIFYING__ Result: whether or not the team we are using data from won or not. __Categorical, Ordinal__.
- - _You can see a snippet of our $X$ before the transformations below._
+ - _You can see a snippet of our _X_ before the transformations below._
 
 |    |   opp_goldat15 |   opp_xpat15 |   opp_killsat15 |   opp_deathsat15 | top       | jg       | mid      | bot      | sup     |   goldat15 |   xpat15 |   killsat15 |   deathsat15 | blueside   |   turretplates |
 |---:|---------------:|-------------:|----------------:|-----------------:|:----------|:---------|:---------|:---------|:--------|-----------:|---------:|------------:|-------------:|:-----------|---------------:|
