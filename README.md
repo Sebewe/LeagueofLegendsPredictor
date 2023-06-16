@@ -82,11 +82,7 @@ The next model I trained on this data was a __Random Forest Classifier__. It had
 
 In order to formulate a fairness question, I decided to examine the __confusion matrix__ of my final model.
 
-<iframe src="confusion_matrix.png" width=800 height=600 frameBorder=0></iframe>
+![Confusiom Matrix](confusion_matrix.png)
 
-
-
-
-
-
+Looking at this confusion matrix, it appears my model is almost equally accurate for both classifications. This is likely because I am passing in enemy performance data as well. It is very likely that the victor of the game is predicted mainly by which team has a higher gold and exp value.
  
