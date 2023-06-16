@@ -84,5 +84,26 @@ In order to formulate a fairness question, I decided to examine the __confusion 
 
 ![Confusiom Matrix](confusion_matrix.png)
 
-Looking at this confusion matrix, it appears my model is almost equally accurate for both classifications. This is likely because I am passing in enemy performance data as well. It is very likely that the victor of the game is predicted mainly by which team has a higher gold and exp value.
+Looking at this confusion matrix, it appears my model is almost equally accurate for both classifications. This is likely because I am passing in enemy performance data as well. It is very likely that the victor of the game is predicted mainly by which team has a higher gold and exp value.    
+     
+Unfortunately, the confusion amtrix did not give me any ideas of potential places for bias. However, I was curious if the algorithim is __biased against teams that do not have extreme performances__? In other words, if a team has roughly average exp and gold at 15 minutes, will the algorithim have a lower accuracy? I plotted this initial bar chart to display if this could be a valid claim.   
+
+_note: the numbers are slightly different than my notebook pdf submission, but the conclusion is the same. The difference is due to me having to re-run the file, and a different train-test split being generated._
+<iframe src="bias_bars.html" width=800 height=600 frameBorder=0></iframe>
+
+From this, we see a small difference, only about a 7% difference in accuracy. However, due to the amount of data available, there is a decent chance that this is statistically significant, which would suggest that our model __does__ have a bias against teams that perform around average. To find the answer, I've laid out a __permutation test__ as follows:
+- __Within range__ definition: A game is __within range__ if the team we are trying to predict has a `'xpat15'` and `'goldat15'` that are both __within__ 0.5 standard deviations of their respective means. These means and standard deviations are measured for the entire dataset, and then applied to our test set for evaluation. 
+- Null Hypothesis: The classifier's accuracy is the __same__ for games that are within range and games that are not within range.
+- Alternative Hypothesis: The classifier's accuracy is __higher__ for games that are not within range.
+- Test statistic: Difference in accuracy: (not within range) - (within range). The signed difference is important because a higher value supports the null hypothesis, if it was unsigned we'd have to change our alternative!
+- Significance level: 0.01     
+        
+The permutation test was then ran for 10,000 shuffles, and the distribution of the simulated test statistic can be seen below:
+<iframe src="simulated_hist.html" width=800 height=600 frameBorder=0></iframe>
+
+This gives us a calculated p-value of 0.0024. Since this is less than our signifigance level, we are able to __disprove the null hypothesis__. This suggests that the data we have actually comes from two different distributions. In other words, its very unlikely (less than 1% likely), that our model __doesn't have a bias against teams that are `within_range`__. This means we are more likely to make errors in our predictions if the team we are trying to predict does not overperform or underperform.
+
+
+
+
  
