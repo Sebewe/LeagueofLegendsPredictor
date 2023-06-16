@@ -82,7 +82,7 @@ The next model I trained on this data was a __Random Forest Classifier__. It had
 
 In order to formulate a fairness question, I decided to examine the __confusion matrix__ of my final model.
 
-<iframe src="assets/confusion_matrix.png" width=800 height=600 frameBorder=0></iframe>
+<iframe src="confusion_matrix.png" width=800 height=600 frameBorder=0></iframe>
 
 
 
